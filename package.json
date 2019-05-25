@@ -1,0 +1,29 @@
+{
+  "name": "todo-api",
+  "version": "1.0.0",
+  "description": "TO-DO API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "MongoDB",
+    "Mocha",
+    "Chai"
+  ],
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.0",
+    "mongoose": "^5.5.11",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  },
+  "author": "Phillip Rosa",
+  "license": "ISC"
+}
