@@ -1,9 +1,12 @@
-module.exports = function(mongoose) {
-  const Schema = mongoose.Schema;
-  const userSchema = new Schema({
-    nome: String,
-    email: String,
-  });
+'use strict'
 
-  return mongoose.model('User', userSchema);
-};
+const Mongoose = require('mongoose');
+const Schema = Mongoose.Schema;
+
+const User = new Schema({
+  email: String,
+  password: String,
+  confirmPassword: String
+});
+
+module.exports = Mongoose.model('User', User);

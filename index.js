@@ -1,30 +1,28 @@
 const express = require('express');
 const morgan = require('morgan');
+const bodyParse = require('body-parser');
+const cors = require('cors');
 const app = express();
 
 const { config } = require('./src/config');
-// const { jokenpo } = require('./src/routes');
-
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    `Content-Type, Access-Control-Allow-Headers,
-       Authorization, X-Requested-With`
-  );
-  next();
-});
+const mongo = require('./src/config/mongo');
+const { user } = require('./src/routes');
 
 app.use(
-  morgan('dev')
+  morgan('dev'),
+  bodyParse.urlencoded({extended: false}),
+  bodyParse.json(),
+  cors()
 );
 
-// API routes
-// app.use();
+app.use(
+  user()
+);
 
 app.listen(config().port, (err) => {
   if (err) {
     return console.log(err);
   }
-  console.log(`Server runing on port ${config().port}`);
+  console.log(`Server running on port ${config().port}`);
+  mongo.connect();
 });
