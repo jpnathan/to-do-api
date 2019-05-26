@@ -2,12 +2,12 @@
 
 const { User } = require('../../models');
 
-const user = (params, callback) => {
+module.exports = (params, callback) => {
   validateParams(params)
     .then(() => {
       saveUser(params)
         .then(user => callback(null, {status: true, result: user}))
-        .catch(error =>  {console.log(error); return callback(error, null)})
+        .catch(error => callback(error, null))
     })
     .catch(error => callback(error, null))
 };
@@ -42,5 +42,3 @@ function saveUser(params) {
     }
   })
 }
-
-module.exports = user;

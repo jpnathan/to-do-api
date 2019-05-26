@@ -9,4 +9,11 @@ route.post('/user', (req, res) => {
   })
 });
 
+route.get('/users', (req, res) => {
+  user.selectUser(req.body, (err, data) => {
+    if (err) res.status(400).json(err);
+    res.status(200).json(data)
+  })
+});
+
 module.exports = route;

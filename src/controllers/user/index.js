@@ -1,5 +1,7 @@
-const createUser = require('./create');
+const create = require('./create');
+const select = require('./select');
 
 module.exports = {
-  createUser: createUser
+  createUser: create,
+  selectUser: select
 };

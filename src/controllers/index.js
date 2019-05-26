@@ -1,7 +1,8 @@
-const { createUser } = require('./user');
+const { createUser, selectUser } = require('./user');
 
 module.exports = {
   user: {
-    createUser: createUser
+    createUser: createUser,
+    selectUser: selectUser
   }
 };
