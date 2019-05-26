@@ -1,5 +1,7 @@
 const userModel = require('./user/index');
+const projectModel = require('./project/index');
 
 module.exports = {
-  User: userModel
+  User: userModel,
+  Project: projectModel
 };

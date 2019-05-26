@@ -2,11 +2,11 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParse = require('body-parser');
 const cors = require('cors');
+const mongo = require('./src/config/mongo');
 const app = express();
 
 const { config } = require('./src/config');
-const mongo = require('./src/config/mongo');
-const { user } = require('./src/routes');
+const { user, project } = require('./src/routes');
 
 app.use(
   morgan('dev'),
@@ -16,7 +16,8 @@ app.use(
 );
 
 app.use(
-  user()
+  user(),
+  project()
 );
 
 app.listen(config().port, (err) => {

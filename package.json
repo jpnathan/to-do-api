@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "start-dev": "nodemon index.js",
     "test": "mocha"
   },
   "keywords": [
@@ -25,7 +26,8 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.1"
   },
   "author": "Phillip Rosa",
   "license": "ISC"
