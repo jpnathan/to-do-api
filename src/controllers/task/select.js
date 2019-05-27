@@ -1,20 +1,20 @@
 'use strict'
 
-const { Project } = require('../../models');
+const { Task } = require('../../models');
 
 module.exports = (params, callback) => {
-  getProjectFromDataBase(params)
+  getTasksFromDataBase(params)
     .then(project => callback(null, {status: true, result: project}))
     .catch((error) => callback(error, null))
 };
 
-function getProjectFromDataBase(params) {
+function getTasksFromDataBase(params) {
   return new Promise((resolve, reject) => {
     try {
       const { id } = params;
-      const query = id && {projectId: id} || {};
-
-      Project.find(query).then(projects => resolve(projects))
+      const query = id && {taskId: id} || {};
+  
+      Task.find(query).then(projects => resolve(projects))
 
     } catch (e) {
       reject({

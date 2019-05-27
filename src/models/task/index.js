@@ -7,7 +7,7 @@ const Schema = Mongoose.Schema;
 const Task = new Schema({
   projectId: {
     type: String,
-    require: true
+    required: true
   },
   description: {
     type: String,
@@ -15,17 +15,18 @@ const Task = new Schema({
   },
   creationDate: {
     type: Date,
-    require: true,
+    required: true,
     default: new Date()
   },
   finishDate: {
     type: Date,
   },
-  status: {
+  enabled: {
     type: Boolean,
-    default: 'open'
+    required: true,
+    default: true
   }
 });
 
-Task.plugin(AutoIncrement, {inc_field: 'id'});
+Task.plugin(AutoIncrement, {inc_field: 'taskId'});
 module.exports = Mongoose.model('Task', Task);

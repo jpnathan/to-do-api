@@ -6,7 +6,7 @@ const mongo = require('./src/config/mongo');
 const app = express();
 
 const { config } = require('./src/config');
-const { user, project } = require('./src/routes');
+const { user, project, task } = require('./src/routes');
 
 app.use(
   morgan('dev'),
@@ -17,7 +17,8 @@ app.use(
 
 app.use(
   user(),
-  project()
+  project(),
+  task()
 );
 
 app.listen(config().port, (err) => {

@@ -5,6 +5,12 @@ const {
   deleteProject,
   updateProject
 } = require('./project');
+const {
+  createTask,
+  selectTask,
+  updateTask,
+  deleteTask
+} = require('./task');
 
 module.exports = {
   user: {
@@ -16,5 +22,11 @@ module.exports = {
     selectProject: selectProject,
     deleteProject: deleteProject,
     updateProject: updateProject
+  },
+  task: {
+    createTask: createTask,
+    selectTask: selectTask,
+    updateTask: updateTask,
+    deleteTask: deleteTask
   }
 };
