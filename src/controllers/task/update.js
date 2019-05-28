@@ -29,7 +29,7 @@ function validateParams(id) {
 function updateTask(id, params) {
   return new Promise((resolve, reject) => {
     try {
-      Task.findOneAndUpdate({projectId: id}, {$set: params}, {new: true})
+      Task.findOneAndUpdate({taskId: id}, {$set: params}, {new: true})
         .then(project => resolve(project))
     } catch (e) {
       reject({

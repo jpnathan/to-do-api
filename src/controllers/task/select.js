@@ -12,7 +12,7 @@ function getTasksFromDataBase(params) {
   return new Promise((resolve, reject) => {
     try {
       const { id } = params;
-      const query = id && {taskId: id} || {};
+      const query = id && {projectId: id} || {};
   
       Task.find(query).then(projects => resolve(projects))
 
