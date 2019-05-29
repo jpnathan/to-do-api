@@ -25,6 +25,10 @@ const Task = new Schema({
     type: Boolean,
     required: true,
     default: true
+  },
+  userId: {
+    type: String,
+    required: true
   }
 });
 

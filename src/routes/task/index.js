@@ -10,14 +10,14 @@ route.post('/tasks', (req, res) => {
 });
 
 route.get('/tasks/:id', (req, res) => {
-  task.selectTask(req.params, (err, data) => {
+  task.selectTask(req, (err, data) => {
     if (err) res.status(400).json(err);
     res.status(200).json(data)
   })
 });
 
 route.get('/tasks', (req, res) => {
-  task.selectTask(req.params, (err, data) => {
+  task.selectTask(req, (err, data) => {
     if (err) res.status(400).json(err);
     res.status(200).json(data)
   })

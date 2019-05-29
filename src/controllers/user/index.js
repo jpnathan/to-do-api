@@ -1,7 +1,7 @@
 const create = require('./create');
-const select = require('./select');
+const auth = require('./auth');
 
 module.exports = {
   createUser: create,
-  selectUser: select
+  authenticate: auth
 };

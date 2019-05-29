@@ -1,5 +1,6 @@
 const { project } = require('../../controllers');
 const { Router } = require('express');
+
 const route = Router();
 
 route.post('/projects', (req, res) => {
@@ -10,14 +11,14 @@ route.post('/projects', (req, res) => {
 });
 
 route.get('/projects/:id', (req, res) => {
-  project.selectProject(req.params, (err, data) => {
+  project.selectProject(req, (err, data) => {
     if (err) res.status(400).json(err);
     res.status(200).json(data)
   })
 });
 
 route.get('/projects', (req, res) => {
-  project.selectProject(req.params, (err, data) => {
+  project.selectProject(req, (err, data) => {
     if (err) res.status(400).json(err);
     res.status(200).json(data)
   })

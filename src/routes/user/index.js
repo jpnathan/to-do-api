@@ -10,10 +10,11 @@ route.post('/users', (req, res) => {
 });
 
 route.post('/auth', (req, res) => {
-  user.selectUser(req.body, (err, data) => {
+  user.authenticate(req, (err, data) => {
     if (err) res.status(400).json(err);
     res.status(200).json(data)
   })
 });
 
 module.exports = route;
+

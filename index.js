@@ -3,10 +3,14 @@ const morgan = require('morgan');
 const bodyParse = require('body-parser');
 const cors = require('cors');
 const mongo = require('./src/config/mongo');
+const jwtConfig = require('./src/config/jwt');
+const middleware = require('./src/routes/middleware');
 const app = express();
 
 const { config } = require('./src/config');
 const { user, project, task } = require('./src/routes');
+
+app.set('secretKey', jwtConfig.secretKey);
 
 app.use(
   morgan('dev'),
@@ -17,6 +21,7 @@ app.use(
 
 app.use(
   user(),
+  middleware,
   project(),
   task()
 );

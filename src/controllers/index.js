@@ -1,4 +1,4 @@
-const { createUser, selectUser } = require('./user');
+const { createUser, authenticate } = require('./user');
 const {
   createProject,
   selectProject,
@@ -15,7 +15,7 @@ const {
 module.exports = {
   user: {
     createUser: createUser,
-    selectUser: selectUser
+    authenticate: authenticate
   },
   project: {
     createProject: createProject,

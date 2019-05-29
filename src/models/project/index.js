@@ -5,10 +5,18 @@ const AutoIncrement = require('mongoose-sequence')(Mongoose);
 const Schema = Mongoose.Schema;
 
 const Project = new Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true
+  },
   createdAt: {
     type: Date,
+    required: true,
     default: new Date()
+  },
+  userId: {
+    type: String,
+    required: true
   }
 });
 

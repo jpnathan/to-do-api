@@ -2,17 +2,18 @@
 
 const { Project } = require('../../models');
 
-module.exports = (params, callback) => {
-  getProjectFromDataBase(params)
+module.exports = (request, callback) => {
+  getProjectFromDataBase(request)
     .then(project => callback(null, {status: true, result: project}))
     .catch((error) => callback(error, null))
 };
 
-function getProjectFromDataBase(params) {
+function getProjectFromDataBase(request) {
   return new Promise((resolve, reject) => {
     try {
-      const { id } = params;
-      const query = id && {projectId: id} || {};
+      const { id } = request.params;
+      const { userId } = request.body;
+      const query = id && {userId: userId, projectId: id} || {userId: userId};
 
       Project.find(query).then(projects => resolve(projects))
 
