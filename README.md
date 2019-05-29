@@ -1,5 +1,5 @@
 # TO-DO List API
-TO-DO API done with Node with user Authentication
+Node TO-DO api with user Authentication
 
 ## Dependencies
 
