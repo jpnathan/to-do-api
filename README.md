@@ -5,6 +5,7 @@ Node TO-DO api with user Authentication
 
 - NodeJS 10.15.3
 - Docker
+- MongoDB
 
 ## Installing / Getting started
 
